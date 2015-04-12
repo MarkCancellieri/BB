@@ -7,7 +7,8 @@ var getHomePage = function(req, res){
     pageHeader: {
       title: 'Totally Fake Website',
       subtitle: 'The World\'s Fakest Website Ever'
-    }
+    },
+    userFullName: req.user ? req.user.fullName : ''
   });
 };
 

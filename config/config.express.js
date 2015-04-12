@@ -2,8 +2,11 @@
 
 // Module dependencies
 var express     = require('express');
+var mongoose    = require('mongoose');
+var passport    = require('passport');
 var config      = require('./config');
-var middleware  = require('./middleware/middleware');
+var middleware  = require('./middleware/config.middleware');
+var MongoStore  = require('connect-mongo')(middleware.session);
 
 // Define the Express configuration function
 function configureExpressApp() {
@@ -14,7 +17,7 @@ function configureExpressApp() {
   app.set('x-powered-by', false);
 
   // Set the application view engine and 'views' folder
-  require('./template-engine')(app);
+  require('./config.template-engine')(app);
 
   // Configure middleware
   if (process.env.NODE_ENV === 'development') app.use(middleware.logger('dev'));
@@ -26,8 +29,14 @@ function configureExpressApp() {
   app.use(middleware.session({
     saveUninitialized: true,
     resave: true,                 // TODO: false unless necessary for session store?
-    secret: config.sessionSecret
+    secret: config.sessionSecret,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
   }));
+  app.use(middleware.flash());
+
+  // Initialize Passport middleware for authentication
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   // Load the routing files
   app.use('/', require('../app_server/routes/server.routes.index.js'));

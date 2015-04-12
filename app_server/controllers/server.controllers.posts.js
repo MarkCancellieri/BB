@@ -9,7 +9,8 @@ var renderListOfPosts = function(req, res, responseBody) {
   res.render('server.views.posts-list.hbs', {
     title: 'Totally Fake Website - Awesome List of Posts',
     pageHeader: {title: 'Recent Posts'},
-    postsList: responseBody
+    postsList: responseBody,
+    userFullName: req.user ? req.user.fullName : ''
   });
 };
 
@@ -39,7 +40,8 @@ var getCreatePostForm = function(req, res){
     pageHeader: {
       title: 'Totally Fake Website',
       subtitle: 'The World\'s Fakest Website Ever'
-    }
+    },
+    userFullName: req.user ? req.user.fullName : ''
   });
 };
 

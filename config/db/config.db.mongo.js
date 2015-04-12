@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var config = require('../config');
 
 // Connect to MongoDB
-mongoose.connect(config.mongoURI);
+var db = mongoose.connect(config.mongoURI);
 
 // Monitor Mongoose for connects and disconnects
 mongoose.connection.on('connected', function () {

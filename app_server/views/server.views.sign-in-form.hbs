@@ -1,0 +1,19 @@
+<!-- Display flash messages  -->
+{{#each messages}}
+  <div class="flash">{{@index}}</div>
+{{/each}}
+
+<!-- Render the signin form  -->
+<form action="/users/signin" method="post">
+  <div>
+    <label>Username:</label>
+    <input type="text" name="username" />
+  </div>
+  <div>
+    <label>Password	:</label>
+    <input type="password" name="password" />
+  </div>
+  <div>
+    <input type="submit" value="Sign In" />
+  </div>
+</form>

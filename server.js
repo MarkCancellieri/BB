@@ -1,19 +1,21 @@
 'use strict';
 
-// test this shit out
-
+// Set environment variables if undefined
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.PORT     = process.env.PORT || 4242;
 
 // Module dependencies
-var http = require('http');
-var express = require('./config/express');
+var http    = require('http');
+var express = require('./config/config.express');
 
-// Start MongoDB
+// Start Mongoose connection to MongoDB
 require('./config/db/config.db.mongo.js');
 
 // Create a new Express application instance
 var app = express();
+
+// Configure Passport for authentication
+require('./config/config.passport')();
 
 // Create a new HTTP server
 var server = http.createServer(app);

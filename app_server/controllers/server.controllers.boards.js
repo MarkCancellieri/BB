@@ -13,7 +13,8 @@ var getListOfBoards = function(req, res){
       {boardTitle: 'Fake Pulp Fiction Board', boardID: 5},
       {boardTitle: 'Fake Gladiator Board', boardID: 6},
       {boardTitle: 'Fake Fight Club Board', boardID: 7}
-    ]
+    ],
+    userFullName: req.user ? req.user.fullName : ''
   });
 };
 
@@ -23,7 +24,8 @@ var getBoard = function(req, res){
   res.render('server.views.posts-list.hbs', {
     title: 'Totally Fake Website - Posts',
     pageHeader: {title: 'Fake Posts'},
-    boardID: boardID
+    boardID: boardID,
+    userFullName: req.user ? req.user.fullName : ''
   });
 };
 

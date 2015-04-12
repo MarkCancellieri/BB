@@ -13,4 +13,5 @@ var boardSchema = new mongoose.Schema({
   posts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 });
 
+// Note: Required by api.models.index.js
 mongoose.model('Board', boardSchema);
