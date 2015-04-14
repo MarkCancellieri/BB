@@ -3,12 +3,21 @@
 // Module dependencies
 var mongoose          = require('mongoose');
 var Board             = mongoose.model('Board');
-var utilities         = require('../../../lib/lib.utilities.js');
-var sendJSONresponse  = utilities.sendJSONresponse;
 
 // Create a new board.
 var createBoard = function (req, res) {
-  sendJSONresponse(res, 200, {"status" : "success"});
+  var newBoard = new Board({
+    name: req.body.name
+  });
+  newBoard.save(function(err, board) {
+    if (!err) {
+      console.log('Saved board: ' + board._id);
+      res.status(201).json(board);
+    } else {
+      console.dir(err);
+      res.status(500).json(err);
+    }
+  });
 };
 
 module.exports = createBoard;

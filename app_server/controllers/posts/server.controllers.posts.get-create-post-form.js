@@ -2,7 +2,7 @@
 
 // Get create post form
 var getCreatePostForm = function(req, res){
-  res.render('server.views.create-post-form.hbs', {
+  res.render('server.views.posts.create-post-form.hbs', {
     title: 'Totally Fake Website - Home',
     pageHeader: {
       title: 'Totally Fake Website',

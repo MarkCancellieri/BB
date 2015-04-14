@@ -1,20 +1,31 @@
 'use strict';
 
+// Module dependencies
+var request     = require('request');
+var apiOptions  = require('../../../config/config').apiOptions;
+
 // Get a list of boards
 var getListOfBoards = function(req, res){
-  res.render('server.views.boards-list.hbs', {
-    title: 'Totally Fake Website - Insanely Great List of Boards',
-    pageHeader: {title: 'Fake Boards'},
-    boardsList: [
-      {boardTitle: 'Fake Sports Board', boardID: 1},
-      {boardTitle: 'Fake Politics Board', boardID: 2},
-      {boardTitle: 'Fake Economics Board', boardID: 3},
-      {boardTitle: 'Fake JavaScript Board', boardID: 4},
-      {boardTitle: 'Fake Pulp Fiction Board', boardID: 5},
-      {boardTitle: 'Fake Gladiator Board', boardID: 6},
-      {boardTitle: 'Fake Fight Club Board', boardID: 7}
-    ],
-    userFullName: req.user ? req.user.fullName : ''
+  var path = '/api/boards';
+  var requestOptions = {
+    url: apiOptions.server + path,
+    method: 'GET',
+    json: {},
+    qs: {}
+  };
+  request(requestOptions, function (err, response, boards) {
+    if (err) {
+      console.dir(err);
+    } else {
+      console.dir(boards);
+
+      res.render('server.views.boards.boards-list.hbs', {
+        title: 'Totally Fake Website - Insanely Great List of Boards',
+        pageHeader: {title: 'Fake Boards'},
+        boards: boards,
+        userFullName: req.user ? req.user.fullName : ''
+      });
+    }
   });
 };
 

@@ -8,6 +8,7 @@ var postsController   = require('../controllers/api.controllers.posts');
 var usersController   = require('../controllers/api.controllers.users');
 
 // Board API routes
+router.get('/api/boards', boardsController.getListOfBoards);
 router.post('/api/boards', boardsController.createBoard);
 
 // Post API routes

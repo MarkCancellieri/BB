@@ -3,8 +3,6 @@
 // Module dependencies
 var mongoose          = require('mongoose');
 var Post              = mongoose.model('Post');
-var utilities         = require('../../../lib/lib.utilities.js');
-var sendJSONresponse  = utilities.sendJSONresponse;
 
 // Create a post.
 var createPost = function (req, res) {

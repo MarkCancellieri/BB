@@ -6,7 +6,7 @@ var apiOptions = require('../../../config/config').apiOptions;
 
 // Render list of posts
 var renderListOfPosts = function(req, res, responseBody) {
-  res.render('server.views.posts-list.hbs', {
+  res.render('server.views.posts.posts-list.hbs', {
     title: 'Totally Fake Website - Awesome List of Posts',
     pageHeader: {title: 'Recent Posts'},
     postsList: responseBody,
@@ -22,8 +22,7 @@ var getListOfPosts = function(req, res){
     url : apiOptions.server + path,
     method : "GET",
     json : {},
-    qs : {
-    }
+    qs : {}
   };
   request(
     requestOptions,
