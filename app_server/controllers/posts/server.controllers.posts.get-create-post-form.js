@@ -1,8 +1,8 @@
 'use strict';
 
-// Get home page
-var getHomePage = function(req, res){
-  res.render('server.views.generic.hbs', {
+// Get create post form
+var getCreatePostForm = function(req, res){
+  res.render('server.views.create-post-form.hbs', {
     title: 'Totally Fake Website - Home',
     pageHeader: {
       title: 'Totally Fake Website',
@@ -12,7 +12,4 @@ var getHomePage = function(req, res){
   });
 };
 
-// Export main controller methods
-module.exports = {
-  getHomePage:  getHomePage
-};
+module.exports = getCreatePostForm;

@@ -40,7 +40,7 @@ function configureExpressApp() {
 
   // Load the routing files
   app.use('/', require('../app_server/routes/server.routes.index.js'));
-  app.use('/api', require('../app_api/routes/api.routes.index.js'));
+  app.use('/', require('../app_api/routes/api.routes.index.js'));
 
   // 404 handler
   app.use(middleware._404);
