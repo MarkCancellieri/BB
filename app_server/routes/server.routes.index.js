@@ -19,7 +19,7 @@ router.get('/admin', adminController.getAdminPage);
 router.get('/boards', boardsController.getListOfBoards);
 router.get('/boards/create', boardsController.getCreateBoardForm);
 router.post('/boards/create', boardsController.submitCreateBoardForm);
-router.get('/boards/:boardID', boardsController.getBoard);
+router.get('/boards/:boardID', postsController.getListOfPosts);
 
 // Post routes
 router.get('/posts', postsController.getListOfPosts);

@@ -5,18 +5,18 @@ var mongoose = require( 'mongoose' );
 
 // Define post schema
 var postSchema = new mongoose.Schema({
-  postTitle: {
+  subject: {
     type: String,
     trim: true,
-    required: 'Title cannot be blank.'
+    required: 'Subject cannot be blank.'
   },
-  postAuthor: {
-    type: String,
+  author: {
+    type: mongoose.Schema.Types.ObjectId, ref: 'User',
     trim: true,
     required: 'Author cannot be blank.'
   },
-  postTime: {type: Date, 'default': Date.now},
-  postBody: {
+  created: {type: Date, 'default': Date.now},
+  body: {
     type: String,
     required: 'Post body cannot be blank.'
   },

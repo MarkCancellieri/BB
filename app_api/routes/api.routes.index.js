@@ -10,6 +10,7 @@ var usersController   = require('../controllers/api.controllers.users');
 // Board API routes
 router.get('/api/boards', boardsController.getListOfBoards);
 router.post('/api/boards', boardsController.createBoard);
+router.get('/api/boards/:boardID', postsController.getListOfPosts);
 
 // Post API routes
 router.get('/api/posts', postsController.getListOfPosts);
