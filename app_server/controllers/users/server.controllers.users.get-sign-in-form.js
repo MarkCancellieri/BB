@@ -10,7 +10,7 @@ var getSignInForm = function(req, res){
       title: 'Sign-up Form',
       // Set the flash message variable
       messages: req.flash('error') || req.flash('info'),
-      userFullName: req.user ? req.user.fullName : ''
+      userFirstName: req.user ? req.user.firstName : ''
     });
   } else {
     return res.redirect('/');

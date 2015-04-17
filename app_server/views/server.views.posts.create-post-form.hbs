@@ -1,3 +1,9 @@
-<form>
-  <textarea id="edit" name="content"></textarea>
+<form action="/boards/{{boardID}}/{{boardName}}/newpost" method="post" role="form">
+  <label for="subject">Subject:</label>
+  <input id="subject" name="subject">
+  <textarea id="edit" name="body"></textarea>
+  <br>
+  <input type="hidden" name="author" value="{{user._id}}">
+  <input type="hidden" name="boardID" value="{{boardID}}">
+  <button class="btn btn-default pull-right">Submit</button>
 </form>

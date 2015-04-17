@@ -2,17 +2,17 @@
 
 // Get home page
 var getHomePage = function(req, res){
+  console.dir(req.user);
   res.render('server.views.generic.hbs', {
     title: 'Totally Fake Website - Home',
     pageHeader: {
       title: 'Totally Fake Website',
       subtitle: 'The World\'s Fakest Website Ever'
     },
-    userFullName: req.user ? req.user.fullName : ''
+    userFirstName: req.user ? req.user.firstName : ''
   });
 };
 
-// Export main controller methods
 module.exports = {
   getHomePage:  getHomePage
 };

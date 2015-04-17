@@ -2,6 +2,13 @@
   <div class="col-xs-12">
     <div class="row">
       <h3 class="text-center">{{pageHeader.title}}</h3>
+      {{#if boardID }}
+        {{#if boardName }}
+          <a href="/boards/{{boardID}}/{{boardName}}/newpost" class="btn btn-default pull-right">New Post</a>
+          <br>
+          <br>
+        {{/if}}
+      {{/if}}
       {{#each posts}}
         <div class="row list-group">
           <div class="col-xs-12 list-group-item">

@@ -17,15 +17,11 @@ module.exports = function() {
       }
 
       if (!user) {
-        return done(null, false, {
-          message: 'Unknown user'
-        });
+        return done(null, false, {message: 'Unknown user'});
       }
 
       if (!user.authenticate(password)) {
-        return done(null, false, {
-          message: 'Invalid password'
-        });
+        return done(null, false, {message: 'Invalid password'});
       }
 
       // If everything is okay, pass the user object to the next middleware

@@ -8,7 +8,10 @@ var getCreatePostForm = function(req, res){
       title: 'Totally Fake Website',
       subtitle: 'The World\'s Fakest Website Ever'
     },
-    userFullName: req.user ? req.user.fullName : ''
+    boardID: req.params.boardID,
+    boardName: req.params.boardName,
+    user: req.user ? req.user : '',
+    userFirstName: req.user ? req.user.firstName : ''
   });
 };
 

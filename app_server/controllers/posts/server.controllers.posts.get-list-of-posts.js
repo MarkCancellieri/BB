@@ -10,7 +10,9 @@ var renderListOfPosts = function(req, res, posts) {
     title: 'Totally Fake Website - Awesome List of Posts',
     pageHeader: {title: 'Recent Posts'},
     posts: posts,
-    userFullName: req.user ? req.user.fullName : ''
+    boardID: req.params.boardID,
+    boardName: req.params.boardName,
+    userFirstName: req.user ? req.user.firstName : ''
   });
 };
 

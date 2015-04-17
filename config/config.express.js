@@ -23,6 +23,7 @@ function configureExpressApp() {
   if (process.env.NODE_ENV === 'development') app.use(middleware.logger('dev'));
   if (process.env.NODE_ENV === 'production') app.use(middleware.compress());
   app.use(express.static('./app_client'));
+  app.use(middleware.serveFavicon('./app_client/favicon.ico'));
   app.use(middleware.bodyParser.json());
   app.use(middleware.bodyParser.urlencoded({extended: true}));
   app.use(middleware.methodOverride());
@@ -32,6 +33,7 @@ function configureExpressApp() {
     secret: config.sessionSecret,
     store: new MongoStore({mongooseConnection: mongoose.connection})
   }));
+  // app.use(middleware.csurf()) TODO: figure out how to use this!
   app.use(middleware.flash());
 
   // Initialize Passport middleware for authentication

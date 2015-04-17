@@ -15,9 +15,7 @@ module.exports = function() {
 
   // Use Passport's 'deserializeUser' method to load the user document
   passport.deserializeUser(function(id, done) {
-    User.findOne({
-      _id: id
-    }, '-password -salt', function(err, user) {
+    User.findOne({_id: id}, '-password -salt', function(err, user) {
       done(err, user);
     });
   });

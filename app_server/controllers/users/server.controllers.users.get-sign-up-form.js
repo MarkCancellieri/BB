@@ -11,7 +11,7 @@ var getSignUpForm = function(req, res){
       title: 'Sign-up Form',
       // Set the flash message variable
       messages: req.flash('error'),
-      userFullName: req.user ? req.user.fullName : ''
+      userFirstName: req.user ? req.user.firstName : ''
     });
   } else {
     return res.redirect('/');

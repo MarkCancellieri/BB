@@ -7,11 +7,12 @@ var apiOptions = require('../../../config/config').apiOptions;
 // Submit create post form
 var createPost = function(req, res){
   var path, requestOptions, postData;
-  path = '/api/posts/new';
+  path = '/api/posts';
   postData = {
-    postTitle: 'Static post title for now',
-    postAuthor: 'Joe Blow',
-    postBody: req.body.body,
+    subject: req.body.subject,
+    author: req.body.author,
+    body: req.body.body,
+    boardID: req.body.boardID
   };
   requestOptions = {
     url : apiOptions.server + path,
@@ -21,7 +22,7 @@ var createPost = function(req, res){
   request(
     requestOptions,
     function(err, response, body) {
-      renderListOfPosts(req, res, body);
+      res.redirect('/boards/' + req.params.boardID + '/' + req.params.boardName);
     }
   );
 };

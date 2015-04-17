@@ -7,7 +7,7 @@ var getBoard = function(req, res){
     title: 'Totally Fake Website - Posts',
     pageHeader: {title: 'Fake Posts'},
     boardID: boardID,
-    userFullName: req.user ? req.user.fullName : ''
+    userFirstName: req.user ? req.user.firstName : ''
   });
 };
 

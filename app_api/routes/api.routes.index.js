@@ -21,5 +21,6 @@ router.delete('/api/posts/:postid', postsController.deletePost);
 
 // User API routes
 router.post('/api/users', usersController.createUser);
+router.post('/api/users/signin', usersController.signIn);
 
 module.exports = router;

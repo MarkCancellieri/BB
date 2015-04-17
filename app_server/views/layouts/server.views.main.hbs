@@ -28,7 +28,8 @@
         <li><a href="/admin">Admin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        {{#if userFullName }}
+        {{#if userFirstName }}
+          <li class="navbar-text">Hello, {{userFirstName}}.</li>
           <li><a href="/users/signout">Sign Out</a></li>
         {{else}}
           <li><a href="/users/signin">Sign In</a></li>

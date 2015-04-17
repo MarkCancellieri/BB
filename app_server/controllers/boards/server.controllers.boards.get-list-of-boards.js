@@ -23,7 +23,7 @@ var getListOfBoards = function(req, res){
         title: 'Totally Fake Website - Insanely Great List of Boards',
         pageHeader: {title: 'Fake Boards'},
         boards: boards,
-        userFullName: req.user ? req.user.fullName : ''
+        userFirstName: req.user ? req.user.firstName : ''
       });
     }
   });

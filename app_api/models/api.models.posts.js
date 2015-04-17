@@ -3,6 +3,7 @@
 // Module dependencies
 var mongoose = require( 'mongoose' );
 
+// TODO: Add permalinks.
 // Define post schema
 var postSchema = new mongoose.Schema({
   subject: {
@@ -20,7 +21,11 @@ var postSchema = new mongoose.Schema({
     type: String,
     required: 'Post body cannot be blank.'
   },
-  boardID: {type: mongoose.Schema.Types.ObjectId, ref: 'Board'}
+  boardID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Board',
+    required: 'BoardID cannot be blank.'
+  }
 });
 
 // Note: Required by api.models.index.js

@@ -20,11 +20,12 @@ router.get('/boards', boardsController.getListOfBoards);
 router.get('/boards/create', boardsController.getCreateBoardForm);
 router.post('/boards/create', boardsController.submitCreateBoardForm);
 router.get('/boards/:boardID', postsController.getListOfPosts);
+router.get('/boards/:boardID/:boardName', postsController.getListOfPosts);
+router.get('/boards/:boardID/:boardName/newpost', postsController.getCreatePostForm);
+router.post('/boards/:boardID/:boardName/newpost', postsController.submitCreatePostForm);
 
 // Post routes
 router.get('/posts', postsController.getListOfPosts);
-router.get('/posts/new', postsController.getCreatePostForm);
-router.post('/posts/new', postsController.submitCreatePostForm);
 
 // User routes
 router.get('/users/signup', usersController.getSignUpForm);
