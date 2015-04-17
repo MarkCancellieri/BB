@@ -23,9 +23,11 @@ router.get('/boards/:boardID', postsController.getListOfPosts);
 router.get('/boards/:boardID/:boardName', postsController.getListOfPosts);
 router.get('/boards/:boardID/:boardName/newpost', postsController.getCreatePostForm);
 router.post('/boards/:boardID/:boardName/newpost', postsController.submitCreatePostForm);
+router.get('/boards/:boardID/:boardName/:postID', postsController.getPost);
 
 // Post routes
 router.get('/posts', postsController.getListOfPosts);
+router.get('/posts/:postID', postsController.getPost);
 
 // User routes
 router.get('/users/signup', usersController.getSignUpForm);

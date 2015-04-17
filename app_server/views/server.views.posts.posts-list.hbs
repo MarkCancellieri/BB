@@ -13,7 +13,11 @@
         <div class="row list-group">
           <div class="col-xs-12 list-group-item">
             <div class="col-sm-6 post-title">
-              <a href="#">{{subject}}</a>
+              {{#if ../boardName }}
+                <a href="/boards/{{boardID}}/{{../../boardName}}/{{_id}}">{{subject}}</a>
+              {{else}}
+                <a href="/posts/{{_id}}">{{subject}}</a>
+              {{/if}}
             </div>
             <span class="author">Author: {{author.fullName}}</span>
             <span class="pull-right">Posted: {{created}}</span>
